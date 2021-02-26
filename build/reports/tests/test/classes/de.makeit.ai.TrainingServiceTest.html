@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class de.makeit.ai.TrainingServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class de.makeit.ai.TrainingServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/de.makeit.ai.html">de.makeit.ai</a> &gt; TrainingServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">6m31.45s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">trainingServiceTest()</td>
+<td class="success">6m31.45s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}
+2021-02-26 12:29:15.402 [Test worker] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2021-02-26 12:29:15.441 [Test worker] DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=UNKNOWN, servers=[{address=127.0.0.1:27017, type=UNKNOWN, state=CONNECTING}]
+2021-02-26 12:29:15.519 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:11}] to 127.0.0.1:27017
+2021-02-26 12:29:15.520 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.cluster - Checking status of 127.0.0.1:27017
+2021-02-26 12:29:15.560 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command - Sending command '{&quot;ismaster&quot;: 1, &quot;$db&quot;: &quot;admin&quot;}' with request id 2 to database admin on connection [connectionId{localValue:1, serverValue:11}] to server 127.0.0.1:27017
+2021-02-26 12:29:15.563 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 2 completed successfully in 36.13 ms on connection [connectionId{localValue:1, serverValue:11}] to server 127.0.0.1:27017
+2021-02-26 12:29:15.565 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=43183100}
+2021-02-26 12:29:15.567 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=127.0.0.1:27017, type=STANDALONE, roundTripTime=43.2 ms, state=CONNECTED}]
+2021-02-26 12:29:15.661 [Test worker @coroutine#1] TRACE org.mongodb.driver.connection - Checked out connection [connectionId{localValue:2}] to server 127.0.0.1:27017
+2021-02-26 12:29:15.664 [Test worker @coroutine#1] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:2, serverValue:12}] to 127.0.0.1:27017
+2021-02-26 12:29:15.669 [Test worker @coroutine#1] DEBUG org.mongodb.driver.operation - retryWrites set to true but the server is a standalone server.
+2021-02-26 12:29:15.688 [Test worker @coroutine#1] DEBUG org.mongodb.driver.protocol.command - Sending command '{&quot;insert&quot;: &quot;training_value&quot;, &quot;ordered&quot;: true, &quot;$db&quot;: &quot;training_center&quot;, &quot;documents&quot;: [{&quot;_id&quot;: {&quot;$oid&quot;: &quot;6038db8bf7a6273b77bb7ac1&quot;}, &quot;chatbot_key&quot;: &quot;AVBIJUB-C6SSMFB-M4AUO4NA-MMHMKMT&quot;, &quot;skill_id&quot;: &quot;bc3842a3-ff9e-4b26-84b6-76b352063f16&quot;, &quot;api_endpoint&quot;: &quot;https://api.eu-de.assistant.watson.cloud.ibm.com&quot;, &quot;assistant_key&quot;: &quot;-oMRNlYmm5DZni5BDSEFCNclPiOfp9UpSHDw8-CeI66C&quot;, &quot;assistant_version&quot;: &quot;2020-04-01&quot;, &quot;intent_example&quot;: &quot;Wer ist dein Ersteller?&quot;, &quot;deleted&quot;: false, &quot;created_on&quot;: {&quot;date&quot;: {&quot;year&quot;: 2021, &quot;month&quot;: 2, &quot;day&quot;: 26}, &quot;time&quot;: {&quot;hour&quot;: 12, &quot;minute&quot;: 29, &quot;second&quot;: 15, &quot;nano&quot;: 624000000}}, &quot;edited_on&quot;: {&quot;date&quot;: {&quot;year&quot;: 2021, &quot;month&quot;: 2, &quot;day&quot;: 26}, &quot;time&quot;: {&quot;hour&quot;: 12, &quot;minute&quot;: 29, &quot;second&quot;: 15, &quot;nano&quot;: 626000000}}}]}' with request id 4 to database training_center on connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+2021-02-26 12:29:15.689 [Test worker @coroutine#1] DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 4 completed successfully in 4.58 ms on connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+2021-02-26 12:29:15.694 [Test worker @coroutine#1] TRACE org.mongodb.driver.connection - Checked in connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+2021-02-26 12:35:46.932 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.cluster - Checking status of 127.0.0.1:27017
+2021-02-26 12:35:46.936 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command - Sending command '{&quot;ismaster&quot;: 1, &quot;$db&quot;: &quot;admin&quot;}' with request id 5 to database admin on connection [connectionId{localValue:1, serverValue:11}] to server 127.0.0.1:27017
+2021-02-26 12:35:46.941 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 5 completed successfully in 4.48 ms on connection [connectionId{localValue:1, serverValue:11}] to server 127.0.0.1:27017
+2021-02-26 12:35:46.943 [cluster-ClusterId{value='6038db8bf7a6273b77bb7ac0', description='null'}-127.0.0.1:27017] DEBUG org.mongodb.driver.cluster - Updating cluster description to  {type=STANDALONE, servers=[{address=127.0.0.1:27017, type=STANDALONE, roundTripTime=35.7 ms, state=CONNECTED}]
+2021-02-26 12:35:46.959 [Test worker @coroutine#1] TRACE org.mongodb.driver.connection - Checked out connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+2021-02-26 12:35:46.959 [Test worker @coroutine#1] DEBUG org.mongodb.driver.operation - retryWrites set to true but the server is a standalone server.
+2021-02-26 12:35:46.961 [Test worker @coroutine#1] DEBUG org.mongodb.driver.protocol.command - Sending command '{&quot;delete&quot;: &quot;training_value&quot;, &quot;ordered&quot;: true, &quot;$db&quot;: &quot;training_center&quot;, &quot;deletes&quot;: [{&quot;q&quot;: {&quot;_id&quot;: {&quot;$oid&quot;: &quot;6038db8bf7a6273b77bb7ac1&quot;}}, &quot;limit&quot;: 1}]}' with request id 6 to database training_center on connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+2021-02-26 12:35:46.962 [Test worker @coroutine#1] DEBUG org.mongodb.driver.protocol.command - Execution of command with request id 6 completed successfully in 2.37 ms on connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+2021-02-26 12:35:46.963 [Test worker @coroutine#1] TRACE org.mongodb.driver.connection - Checked in connection [connectionId{localValue:2, serverValue:12}] to server 127.0.0.1:27017
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.6.1</a> at 26.02.2021 12:35:47</p>
+</div>
+</div>
+</body>
+</html>
