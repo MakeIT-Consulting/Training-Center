@@ -16,12 +16,10 @@ fun Route.training() {
         post("start") {
             val params: HashMap<String, Any>? = call.receiveOrNull()
             if (params == null) {
-                call.respond(
-                    HttpStatusCode.BadRequest,
-                    mapOf("error" to "Missing Request Body")
-                )
+                call.respond(HttpStatusCode.BadRequest, mapOf("error" to "Missing Request Body"))
                 return@post
             }
+            val service = params["service"].toString()
             val chatbotKey = params["chatbot_key"].toString()
             val skillId = params["skill_id"].toString()
             val apiEndpoint = params["api_endpoint"].toString()
@@ -30,9 +28,17 @@ fun Route.training() {
             val intentExample = params["intent_example"].toString()
 
             try {
-                log.debug("Starting the watson training")
-                val trainingResponse = trainingService.watsonRequest(chatbotKey, skillId, apiEndpoint, assistantKey, assistantVersion, intentExample)
-                call.respond(HttpStatusCode.OK, trainingResponse)
+                when (service) {
+                    "watson" -> {
+                        log.debug("Starting the watson training")
+                        val trainingResponse = trainingService.watsonRequest(chatbotKey, skillId, apiEndpoint, assistantKey, assistantVersion, intentExample)
+                        call.respond(HttpStatusCode.OK, trainingResponse)
+                    }
+                    else -> {
+                        call.respond(HttpStatusCode.NotFound, mapOf("error" to "No Service defined!"))
+                        return@post
+                    }
+                }
             } catch (e: Exception) {
                 call.respond(
                     HttpStatusCode.NotFound, mapOf("error" to "Something went wrong")
