@@ -13,7 +13,7 @@ fun Application.module(testing: Boolean = false) {
     MoleConfig.init(environment.config.property("services").getString(), null)
 
     routing {
-        route("watson/") {
+        route("api/") {
             training()
         }
     }
