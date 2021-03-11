@@ -1,5 +1,6 @@
 package de.makeit.ai.router
 
+import com.google.gson.Gson
 import de.makeit.ai.services.TrainingService
 import io.ktor.application.*
 import io.ktor.http.*
@@ -12,9 +13,10 @@ import org.slf4j.LoggerFactory
 fun Route.training() {
     val log: Logger = LoggerFactory.getLogger(this::javaClass.name)
     val trainingService = TrainingService()
-    route("training/") {
-        post("start") {
-            val params: HashMap<String, Any>? = call.receiveOrNull()
+    route("training") {
+        post("/") {
+            val json = call.receiveOrNull<String>()
+            val params = Gson().fromJson(json, Map::class.java)
             if (params == null) {
                 call.respond(HttpStatusCode.BadRequest, mapOf("error" to "Missing Request Body"))
                 return@post
@@ -32,7 +34,7 @@ fun Route.training() {
                     "watson" -> {
                         log.debug("Starting the watson training")
                         val trainingResponse = trainingService.watsonRequest(chatbotKey, skillId, apiEndpoint, assistantKey, assistantVersion, intentExample)
-                        call.respond(HttpStatusCode.OK, trainingResponse)
+                        call.respond(HttpStatusCode.OK, trainingResponse.message)
                     }
                     else -> {
                         call.respond(HttpStatusCode.NotFound, mapOf("error" to "No Service defined!"))
@@ -46,7 +48,7 @@ fun Route.training() {
                 return@post
             }
         }
-        post("status") {
+        post("/status") {
             val params: HashMap<String, Any>? = call.receiveOrNull()
             if (params == null || !params.containsKey("chatbot_key")) {
                 call.respond(

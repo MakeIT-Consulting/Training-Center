@@ -28,7 +28,7 @@ class TrainingService : MoleService<TrainingValue>("training_center", "training_
         add(trainingValue)
         var isTraining = true
         var trainingCode = 102
-        var message = "Watson is training"
+        var message = "started"
         val authenticator = IamAuthenticator(assistantKey)
         val assistant = Assistant(assistantVersion, authenticator)
         assistant.serviceUrl = apiEndpoint
@@ -53,7 +53,7 @@ class TrainingService : MoleService<TrainingValue>("training_center", "training_
                 fallback(trainingValue)
                 isTraining = false
                 trainingCode = 408
-                message = "Training failed after five tries"
+                message = "failed"
                 break
             }
             confidence = response.result.intents[0].confidence()
@@ -62,7 +62,7 @@ class TrainingService : MoleService<TrainingValue>("training_center", "training_
 
         return if (confidence > 0.7) {
             isTraining = false
-            message = "Training is done"
+            message = "success"
             trainingCode = 200
             delete(trainingValue)
             TrainingResponse(trainingCode, isTraining, confidence, message)
@@ -72,7 +72,7 @@ class TrainingService : MoleService<TrainingValue>("training_center", "training_
 
     private fun fallback(trainingValue: TrainingValue) {
         delete(trainingValue)
-        log.error("training failed")
+        log.error("error")
     }
 
     fun getStatus(chatbotKey: String): TrainingValue? {
